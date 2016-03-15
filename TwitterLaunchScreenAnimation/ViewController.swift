@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         title = "News"
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.yellowColor()
     }
 
     override func didReceiveMemoryWarning() {

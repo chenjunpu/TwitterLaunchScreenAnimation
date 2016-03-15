@@ -66,19 +66,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         transformAnim.fillMode = kCAFillModeForwards
         nav.view.layer.mask?.addAnimation(transformAnim, forKey: "transformAnimation")
         
+        let time: NSTimeInterval = 1.5
+        let delay = dispatch_time(DISPATCH_TIME_NOW,
+            Int64(time * Double(NSEC_PER_SEC)))
+        dispatch_after(delay, dispatch_get_main_queue()) {
+            self.backgroundView.removeFromSuperview()
+
+        }
+
+        
     }
     
     override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-        
-        UIView.animateWithDuration(0.25, animations: { () -> Void in
-            
-            self.nav.view.layer.mask = nil
-            self.backgroundView.alpha = 0
-
-            }) { (value: Bool) -> Void in
-                
-                self.backgroundView.removeFromSuperview()
-        }
+        self.nav.view.layer.mask = nil
     
     }
 
